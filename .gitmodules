@@ -1,0 +1,24 @@
+[submodule "thirdpart/dpdk"]
+	path = thirdpart/dpdk
+	url = git@github.com:DPDK/dpdk.git
+[submodule "thirdpart/netmap"]
+	path = thirdpart/netmap
+	url = git@github.com:luigirizzo/netmap.git
+[submodule "thirdpart/libbpf"]
+	path = thirdpart/libbpf
+	url = git@github.com:libbpf/libbpf.git
+[submodule "thirdpart/PF_RING"]
+	path = thirdpart/PF_RING
+	url = git@github.com:ntop/PF_RING.git
+[submodule "thirdpart/libevent"]
+	path = thirdpart/libevent
+	url = git@github.com:libevent/libevent.git
+[submodule "thirdpart/libnet"]
+	path = thirdpart/libnet
+	url = git@github.com:libnet/libnet.git
+[submodule "thirdpart/snabb"]
+	path = thirdpart/snabb
+	url = git@github.com:snabbco/snabb.git
+[submodule "thirdpart/vpp"]
+	path = thirdpart/vpp
+	url = git@github.com:FDio/vpp.git
