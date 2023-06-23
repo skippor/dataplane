@@ -1,3 +1,5 @@
+# netmap
+
 git clone https://github.com/luigirizzo/netmap.git
 http://info.iet.unipi.it/~luigi/netmap/
 
@@ -5,6 +7,9 @@ https://juejin.cn/post/7125483979792187399
 https://zhuanlan.zhihu.com/p/607854526
 https://abcdxyzk.github.io/blog/2020/05/21/netmap/
 
+## build
+
+```shell
 apt install linux-source
 cd /usr/src
 tar -xvjf linux-source-5.15.0.tar.bz2
@@ -12,6 +17,11 @@ tar -xvjf linux-source-5.15.0.tar.bz2
 ./configure --drivers=e1000,veth.c --kernel-sources=/usr/src/linux-source-5.15.0
 make all
 
+```
+
+## run
+
+```shell
 # find . -name "*.ko"
 ./veth.ko
 ./e1000/e1000.ko
@@ -43,11 +53,13 @@ pkt-gen -i eth0 -f tx -n 500111222 -l 60 -w 5
 # you should see about 14.88 Mpps
 
 # act as a receiver
-pkt-gen -i eth0 -f rx 
+pkt-gen -i eth0 -f rx
 
+```
 
+## example
 
-
+```shell
 # ./configure --drivers=veth.c,e1000 --kernel-sources=/usr/src/linux-source-5.15.0
 **********************************  NOTE   **********************************
 *** Running some preliminary tests to customize the build environment.
@@ -66,11 +78,11 @@ pkt-gen -i eth0 -f rx
 *** kernel sources              /usr/src/linux-source-5.15.0
 *** linux version               50f4a  [5.15.74]
 *** module file                 netmap.ko
-*** 
+***
 *** subsystems                  null ptnetmap generic monitor pipe vale
 *** apps                        dedup vale-ctl nmreplay tlem lb bridge pkt-gen
 *** native drivers              e1000 veth.c
-*** 
+***
 *** Contents of the drivers.mak file:
 *** e1000@conf := CONFIG_E1000
 *** e1000@src := cp -Rp /usr/src/linux-source-5.15.0/drivers/net/ethernet/intel/e1000 e1000
@@ -79,3 +91,4 @@ pkt-gen -i eth0 -f rx
 *** veth.c@src := cp -Rp /usr/src/linux-source-5.15.0/drivers/net/veth.c veth.c
 *** veth.c@patch := patches/vanilla--veth.c--41400--99999
 *****************************************************************************
+```
